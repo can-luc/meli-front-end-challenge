@@ -1,4 +1,6 @@
-export const productAdapter = (Product: any) => ({
+export const productAdapter = (Product: any) => (
+ 
+  {
   author: {
     name: 'Lucas',
     lastname: 'Caniella',

@@ -1,62 +1,110 @@
 import styled from 'styled-components';
+import { device } from '../../styled.component/device';
 
-export const ContainerLayout = styled.div`
-  width: 1200px;
-  margin: 0 auto;
-`;
-
-export const DetailContainer = styled.div`
-  background: white;
-  padding: 32px;
-  border-radius: 4px;
-  margin: 0 auto;
-`;
-export const PriceContainer = styled.div`
+export const ProductDetailStyled = styled.div`
+  width: 100%;
   display: flex;
-  align-items: normal;
-`;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 
-export const TextContainer = styled.div`
-  margin-left: 60px;
-  display: flex;
-  align-items: normal;
-  justify-content: normal;
-  flex-direction: column;
-`;
-export const Sold = styled.span`
-  font-size: 14px;
-  color: #333333;
-  margin-bottom: 16px;
-`;
-export const Title = styled.h2`
-  font-size: 24px;
-  color: #333333;
-  width: 70%;
-  margin-bottom: 32px;
-`;
-export const Price = styled.span`
-  font-size: 46px;
-  color: #333333;
-  margin-bottom: 32px;
-`;
-export const ButtonComprar = styled.button`
-  background: #3483fa;
-  color: white;
-  width: 266px;
-  height: 44px;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 6px;
-`;
+  .containerCard {
+    background: white;
+    border-radius: 4px;
+    width: 90%;
+    height: 100%;
+    @media ${device.laptop} {
+      height: 750px;
+    }
+  }
 
-export const Subtitle = styled.p`
-  color: #333333;
-  font-size: 28px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-`;
-export const Description = styled.span`
-  font-size: 16px;
-  color: #999999;
-  margin-bottom: 32px;
+  .container {
+    justify-content: space-around;
+    @media ${device.laptop} {
+      flex-direction: row;
+    }
+    flex-direction: column;
+    width: 90%;
+    display: flex;
+  }
+
+  .img {
+    width: 180px;
+    height: 180px;
+    @media ${device.laptop} {
+      width: 450px;
+      height: 450px;
+    }
+  }
+  .containerText {
+    @media ${device.laptop} {
+      margin-left: 60px;
+      align-items: normal;
+      margin-top: 32px;
+    }
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 0px;
+    display: flex;
+    
+    justify-content: normal;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 12px;
+    @media ${device.laptop} {
+      font-size: 24px;
+    }
+    color: #333333;
+    width: 70%;
+    margin-bottom: 32px;
+  }
+  .price {
+    @media ${device.laptop} {
+      font-size: 46px;
+      margin-bottom: 32px;
+    }
+
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  .button {
+    background: #3483fa;
+    color: white;
+    width: 100px;
+    @media ${device.laptop} {
+      width: 266px;
+    }
+    height: 44px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    color: #333333;
+    
+    height: 10px;
+    @media ${device.laptop} {
+      font-size: 28px;
+      padding-left: 25px;
+      height: 100px;
+    }
+    font-size: 10px;
+    padding-left: 85px;
+    
+  }
+  .descripcion {
+    @media ${device.laptop} {
+      font-size: 16px;
+    }
+    font-size: 8px;
+    color: #999999;
+    margin-bottom: 32px;
+    width: 90%;
+    display: flex;
+    padding: 1rem;
+  }
+  }
 `;

@@ -1,0 +1,20 @@
+{
+  "name": "api-meli",
+  "version": "1.0.0",
+  "description": "back-end api",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
