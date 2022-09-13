@@ -12,9 +12,13 @@ export const productSlice = createSlice({
     filterProductById: (state, action) => {
       return action.payload;
     },
+    productClear: (state, action) => {
+      return initialState;
+    },
+    
   },
 });
 
-export const { filterProducts, filterProductById } = productSlice.actions;
+export const { filterProducts, filterProductById,productClear } = productSlice.actions;
 
 export default productSlice.reducer;

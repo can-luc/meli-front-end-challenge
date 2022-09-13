@@ -11,9 +11,14 @@ const BreadCrumb: React.FC<BreadCrumbInterface> = () => {
 	const productsData = useSelector((store: AppStore) => store.product)
 	const listCategories: string[] = [];
 
-	productsData.categories?.map((x: string) => {
-		listCategories.push(x, ' >');
-	})
+	const categoryExist = productsData.hasOwnProperty('categories');
+
+	if (categoryExist) {
+		productsData.categories?.map((x: string) => {
+			listCategories.push(x, ' >');
+		})
+	}
+
 
 	return (
 
@@ -21,7 +26,7 @@ const BreadCrumb: React.FC<BreadCrumbInterface> = () => {
 			{
 				<BreadCrumbStyled>
 					<p className='p'>
-						{listCategories?.map(function (x: string, index) {
+						{categoryExist && listCategories?.map(function (x: string, index) {
 							return (<span key={x + index}>{x}</span>)
 						})}
 					</p>

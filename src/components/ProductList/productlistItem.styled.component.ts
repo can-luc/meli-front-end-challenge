@@ -3,7 +3,7 @@ import { device } from '../../styled.component/device';
 export const ProductListItemStyled = styled.div`
 
 	.containerCard{
-	width:100%;
+    width: 90%;
 	height:270px;
     @media ${device.laptop} {
         height: 180px;
@@ -27,11 +27,13 @@ export const ProductListItemStyled = styled.div`
     .title{
         @media ${device.laptop} {
            font-size: 18px;
-           width: 100%;
+         
           }
           font-size: 10px;
         color: #333333;
-        width: 65%;
+        width: 100%;
+        padding-bottom: 1rem;
+        font-weight: 400;
     } 
     .price{
         @media ${device.laptop} {
@@ -58,13 +60,15 @@ export const ProductListItemStyled = styled.div`
     }
     .containerPrice_title{
         height: 100%;
-        width: 50vh;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         
     }
     .containerPrice{
+        max-width: 90%;
+        width: 90%;
         font-weight: bold;
         padding: 0px;
         @media ${device.laptop} {
@@ -85,6 +89,7 @@ export const ProductListItemStyled = styled.div`
     .City{
         font-size: 12px;
         color: #666666;
+        font-weight: 400;
     }
     .Image{
         border-radius: 4px;

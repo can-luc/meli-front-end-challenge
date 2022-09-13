@@ -4,6 +4,7 @@ import { productDetailAdapter } from '../../adapters/productdetail.adapter';
 import Shipping from "../../assets/shipping.png";
 import { Loading } from '../../common/components/Loading';
 import { NotResultsFound } from '../../common/components/NotResultsFound';
+import { priceFormater } from '../../common/utils/priceFormater';
 import useFetchAndLoad from '../../hooks/useFetchAndLoad';
 import { filterProductById } from '../../redux/states/product';
 import { AppStore } from '../../redux/store';
@@ -35,7 +36,7 @@ export const ProductListItems: React.FC<ProductListsInterface> = ({
 
 	const loadDetailId = async () => {
 		const productById = await callEndpoint(getProductById(id));
-		dispatch(filterProductById(productDetailAdapter(productById.data.id, productById.data.description)));
+		dispatch(filterProductById(productDetailAdapter(productById.data)));
 	}
 
 	if (productsData.items?.length === 0) return <NotResultsFound />
@@ -58,8 +59,8 @@ export const ProductListItems: React.FC<ProductListsInterface> = ({
 						</div>
 						<div className='containerPrice'>
 							<div className='containerPrice_title'>
-								<div className='price'>
-									$ {price}
+								<div className='price'> 
+									$  {priceFormater(!price?0:price)}
 									{free_shipping ? <img className='shipping' src={Shipping} alt="product-item" width={18} height={18} /> : null}
 								</div>
 								<div className='title'>{title}</div>

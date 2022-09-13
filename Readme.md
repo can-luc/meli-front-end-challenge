@@ -37,7 +37,15 @@ Iniciar proyecto en modo desarrollo
 ```bash
   yarn dev
 ```
+## Iniciar Api
+Ir al directorio del proyecto
 
+```bash
+  cd meli-front-end-challenge/api-meli
+```
+```bash
+  yarn run start
+```
 ## Componentes
 
 Los principales componentes son 3: ```Navbar```, ```ProductList``` y ```ProductDetails```.
