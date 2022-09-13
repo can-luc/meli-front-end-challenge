@@ -1,4 +1,4 @@
-export interface modelProduct {
+export interface productModel {
  
     author: {
       name: string,
@@ -18,12 +18,4 @@ export interface modelProduct {
     sold_quantity: number;
     description: string;
   };
-}
-export interface modelCategory {
-  author: {
-    name: string;
-    lastname: string;
-  };
-  categories: string[];
-  items: object[] | undefined;
 }

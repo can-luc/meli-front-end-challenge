@@ -76,7 +76,7 @@ export const ProductDetailStyled = styled.div`
   .button {
     background: #3483fa;
     color: white;
-    width: 100px;
+   
     @media ${device.laptop} {
       width: 266px;
     }
