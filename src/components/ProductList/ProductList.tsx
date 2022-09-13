@@ -6,6 +6,7 @@ import { NotResultsFound } from '../../common/components/NotResultsFound';
 import { AppStore } from '../../redux/store';
 import { ProductListStyled } from './productlist.styled.component';
 import { ProductListItems } from './ProductListtem';
+import { ProductList as ProductLists } from '../../types/productList';
 export interface ProductListsInterface { }
 
 export const ProductList: React.FC = () => {
@@ -13,7 +14,7 @@ export const ProductList: React.FC = () => {
 
 	if (productsData.items?.length === 0) return <NotResultsFound />
 
-
+console.log(productsData.items);
 	return (
 		<>
 
@@ -21,26 +22,26 @@ export const ProductList: React.FC = () => {
 				<BreadCrumb />
 				<div className='boxWrap'>
 					<ol data-test-id="product-list" className='ol'>
-						{productsData?.items?.map(function (x: any, index: number) {
+						{productsData?.items?.map((
+							{ id, picture, title, price, free_shipping, city }: ProductLists,
+							index: number
+						) => (
+							<Link key={id} data-test-id="product-list-item" to={`/items/${id}`}>
 
-							return (
-								<Link key={x.id} data-test-id="product-list-item" to={`/items/${x.id}`}>
+								<ProductListItems
+									key={id}
+									id={id}
+									index={index}
+									picture={picture}
+									title={title}
+									price={price}
+									free_shipping={free_shipping}
+									city={city}
+								/>
 
-									<ProductListItems
-										key={x.id}
-										id={x.id}
-										index={index}
-										image={x.picture}
-										title={x.title}
-										price={x.price.amount}
-										free_shipping={x.free_shiping}
-										city={x.location}
-									/>
-
-								</Link>
-							)
-
-						})}
+							</Link>
+						  )
+						  )}
 					</ol>
 				</div>
 
