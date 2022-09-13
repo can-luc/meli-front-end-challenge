@@ -1,4 +1,6 @@
-export const productDetailAdapter = (Product: any) => ({
+import { ProductDetail } from "../types/productDetail";
+
+export const productDetailAdapter = (Product: ProductDetail) => ({
   author: {
     name: 'Lucas',
     lastname: 'Caniella',
@@ -9,7 +11,7 @@ export const productDetailAdapter = (Product: any) => ({
     price: Product.price,
     picture: Product.picture,
     condition: Product.condition,
-    free_shipping: Product.free_shipping,
+    free_shipping: Product.free_shiping,
     sold_quantity: Product.sold_quantity,
     description: Product.description,
   },

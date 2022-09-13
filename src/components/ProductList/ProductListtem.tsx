@@ -9,20 +9,11 @@ import useFetchAndLoad from '../../hooks/useFetchAndLoad';
 import { filterProductById } from '../../redux/states/product';
 import { AppStore } from '../../redux/store';
 import { getProductById } from '../../services/public.service';
+import { ProductList } from '../../types/productList';
 import { ProductListItemStyled } from './productlistItem.styled.component';
 
-export interface ProductListsInterface {
-	image: string;
-	title: string;
-	price: number;
-	free_shipping: boolean;
-	city: string;
-	index: number;
-	id: string;
-}
-
-export const ProductListItems: React.FC<ProductListsInterface> = ({
-	image,
+export const ProductListItems: React.FC<ProductList> = ({
+	picture,
 	title,
 	price,
 	free_shipping,
@@ -55,12 +46,12 @@ export const ProductListItems: React.FC<ProductListsInterface> = ({
 					<div className='containerCard'>
 
 						<div className='Image' >
-							<img src={image} width={180} height={180} />
+							<img src={picture} width={180} height={180} />
 						</div>
 						<div className='containerPrice'>
 							<div className='containerPrice_title'>
 								<div className='price'> 
-									$  {priceFormater(!price?0:price)}
+									$  {priceFormater(!price.amount?0:price.amount)}
 									{free_shipping ? <img className='shipping' src={Shipping} alt="product-item" width={18} height={18} /> : null}
 								</div>
 								<div className='title'>{title}</div>
