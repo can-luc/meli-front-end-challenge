@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { BreadCrumb } from '../../common/components/BreadCrumb';
 import { NotResultsFound } from '../../common/components/NotResultsFound';
 import { AppStore } from '../../redux/store';
-
 import { ProductListStyled } from './productlist.styled.component';
 import { ProductListItems } from './ProductListtem';
 export interface ProductListsInterface { }
@@ -34,7 +33,7 @@ export const ProductList: React.FC = () => {
 										image={x.picture}
 										title={x.title}
 										price={x.price.amount}
-										free_shipping={x.free_shipping}
+										free_shipping={x.free_shiping}
 										city={x.location}
 									/>
 

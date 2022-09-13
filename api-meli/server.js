@@ -22,33 +22,12 @@ const errorHandler = (error, request, response, next) => {
 
 app.get('/allProducts/:id', cors(), async (request, response, next) => {
   try {
-    const product = {
-      author: {
-        name: 'lucas',
-        lastname: 'caniella',
-      },
-      categories: [],
-      items: [
-        (id = ''),
-        (title = ''),
-        (price = {
-          currency: '',
-          amount: 0,
-        }),
-        (picture = ''),
-        (condition = ''),
-        (free_shiping = false),
-        (sold_quantity = 0),
-        (location = ''),
-      ],
-    };
-
     const Limit = '4';
     const Url = `${API}/sites/MLA/search?q=${request.params.id}&limit=${Limit}`;
 
     const apiResponse = await axios.get(Url);
     const jsonResponse = apiResponse.data;
-   
+
     response.send(ProductAdapter(jsonResponse));
   } catch (error) {
     next(error);
@@ -60,6 +39,7 @@ function ProductAdapter(props) {
 
   //save Items
   props.results?.map((x) => {
+    
     const item = {
       id: x.id,
       title: x.title,
@@ -69,10 +49,11 @@ function ProductAdapter(props) {
       },
       picture: x.thumbnail,
       condition: x.condition,
-      free_shiping: x.shipping,
+      free_shiping: x.shipping.free_shipping,
       sold_quantity: x.sold_quantity,
       location: x.address.city_name,
     };
+    console.log(item);
     Items.push(item);
   });
   //
@@ -91,7 +72,7 @@ function ProductAdapter(props) {
       Categories.push(x.name);
     });
   }
-  const sliceCategories=Categories.slice(0, 5);
+  const sliceCategories = Categories.slice(0, 5);
   //
 
   const product = {
@@ -108,21 +89,44 @@ function ProductAdapter(props) {
 
 app.get('/ProductById', cors(), async (request, response, next) => {
   try {
-
-  
     const Url = `${API}/items/${request.query.product}`;
     const UrlDescription = `${API}/items/${request.query.product}/description`;
 
     await axios.all([axios.get(Url), axios.get(UrlDescription)]).then(
       axios.spread((byId, byDescription) => {
-      
-        response.send({ id: byId.data, description: byDescription.data });
+        console.log(byId);
+
+        response.send(ProductDetailAdapter(byId.data, byDescription.data));
+        //response.send({ id: byId.data, description: byDescription.data });
       })
     );
   } catch (error) {
     next(error);
   }
 });
+function ProductDetailAdapter(id, Description) {
+
+  const productDetail = {
+    author: {
+      name: 'Lucas',
+      lastname: 'Caniella',
+    },
+    item: {
+      id: id.id,
+      title: id.title,
+      price: {
+        currency: id.currency_id,
+        amount: id.price,
+      },
+      picture: id.thumbnail,
+      condition: id.condition,
+      sold_quantity: id.sold_quantity,
+      description: Description.plain_text,
+    },
+  };
+
+  return productDetail;
+}
 
 app.use(errorHandler);
 

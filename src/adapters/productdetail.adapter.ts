@@ -1,4 +1,4 @@
-export const productDetailAdapter = (Product: any, Description: any) => ({
+export const productDetailAdapter = (Product: any) => ({
   author: {
     name: 'Lucas',
     lastname: 'Caniella',
@@ -6,13 +6,11 @@ export const productDetailAdapter = (Product: any, Description: any) => ({
   item: {
     id: Product.id,
     title: Product.title,
-    price: {
-      currency: Product.currency_id,
-      amount: Product.price,
-    },
-    picture: Product.thumbnail,
+    price: Product.price,
+    picture: Product.picture,
     condition: Product.condition,
+    free_shipping: Product.free_shipping,
     sold_quantity: Product.sold_quantity,
-    description: Description.plain_text,
+    description: Product.description,
   },
 });

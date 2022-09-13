@@ -20,6 +20,7 @@ const useFetchAndLoad = () => {
       throw err;
     }
     setLoading(false);
+    setErrors('');
     return result;
   };
 

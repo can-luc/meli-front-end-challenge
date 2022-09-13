@@ -7,24 +7,27 @@ export const ProductDetailStyled = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-
+  
   .containerCard {
     background: white;
     border-radius: 4px;
     width: 90%;
     height: 100%;
     @media ${device.laptop} {
-      height: 750px;
+      height: 100%;
+     
     }
   }
 
   .container {
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
     @media ${device.laptop} {
       flex-direction: row;
+      align-items: none;
     }
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     display: flex;
   }
 
@@ -58,6 +61,7 @@ export const ProductDetailStyled = styled.div`
     color: #333333;
     width: 70%;
     margin-bottom: 32px;
+    font-weight: 400;
   }
   .price {
     @media ${device.laptop} {
@@ -84,26 +88,26 @@ export const ProductDetailStyled = styled.div`
   }
   .subtitle {
     color: #333333;
-    
+    text-align: center;
     height: 10px;
     @media ${device.laptop} {
       font-size: 28px;
       padding-left: 25px;
       height: 100px;
+      text-align: initial;
     }
     font-size: 10px;
-    padding-left: 85px;
-    
   }
   .descripcion {
+    overflow: hidden;
     @media ${device.laptop} {
       font-size: 16px;
+     
     }
     font-size: 8px;
     color: #999999;
     margin-bottom: 32px;
     width: 90%;
-    display: flex;
     padding: 1rem;
   }
   }

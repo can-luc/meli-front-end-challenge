@@ -14,6 +14,7 @@ interface NavbarInterface { }
 
 const Navbar: React.FC<NavbarInterface> = () => {
   const [querySearch, setquerySearch] = useState<string>('');
+  const [Msjerror, setMsjerror] = useState<string>('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, callEndpoint, errors } = useFetchAndLoad();
@@ -22,10 +23,12 @@ const Navbar: React.FC<NavbarInterface> = () => {
 
     const products = await callEndpoint(getProducts(querySearch));
     console.log(products)
+    if (errors) setMsjerror(errors);
     dispatch(filterProducts(products.data));
     navigate('/items');
 
   };
+
 
   return (
     <>
@@ -43,7 +46,9 @@ const Navbar: React.FC<NavbarInterface> = () => {
         </div>
       </NavbarStyled>
       {loading && <Loading />}
+
       {errors && <span>Hubo un error, reintenta la busqueda.</span>}
+
     </>
 
   );

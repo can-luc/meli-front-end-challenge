@@ -14,7 +14,7 @@ export interface modelProduct {
     };
     picture: string;
     condition: string;
-    free_shiping: boolean | undefined;
+    free_shiping: boolean;
     sold_quantity: number;
     description: string;
   };

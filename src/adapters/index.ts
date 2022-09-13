@@ -1,1 +1,1 @@
-export * from './product.adapter';
+export * from './productdetail.adapter';

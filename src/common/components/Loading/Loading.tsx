@@ -6,7 +6,7 @@ export interface LoadingInterface { }
 
 const Loading: React.FC<LoadingInterface> = () => {
 	return <ContainerLoading>
-		<TextLoading>Loading...</TextLoading>
+		<TextLoading>Cargando...</TextLoading>
 	</ContainerLoading>;
 };
 
