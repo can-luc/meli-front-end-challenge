@@ -72,7 +72,7 @@ a travez de la carpeta adapters,como no queremos ensuciar los componentes con in
 - ```ProductDetails```: Componente que renderiza un producto en especifico con su descripcion sobre el producto, precio, imagen, etc.
 
 ## Adapters
-En la carpeta ```adapters``` nos encontramos con los modelos que indicamos para retorna al componente solo la informacion que esta esperando
+En la carpeta ```adapters``` nos encontramos con los modelos que indicamos para retorna al componente solo la informacion que esta esperando es de utilidad cuando no podemos acceder a cambiar datos en la estructura recibida de la api, en este caso solo queda de ejemplo.
 
 ## Common
 
@@ -89,7 +89,7 @@ En la carpeta ```common``` nos encontramos componentes y utilidades que se compa
 - ```utils```: En Utils nos encontramos actualmente con una funcion llamada ```loadAbort```.
     
     - ```loadAbort```: Funcion que inicializa un nuevo AbortController
-    Con él, podemos abortar una o más solicitudes de búsqueda. Para hacer esto, necesitamos crear una instancia de AbortController y usarla al realizar la solicitud de recuperación.
+    Con él, podemos abortar una o más solicitudes de búsqueda, es de utilidad cuando se desmonta un componente y la peticion no finalizo aun, Para hacer esto, necesitamos crear una instancia de AbortController y usarla al realizar la solicitud de recuperación.
 
 
 ## Estilos
