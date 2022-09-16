@@ -8,13 +8,11 @@ export interface BreadCrumbInterface { }
 
 const BreadCrumb: React.FC<BreadCrumbInterface> = () => {
 
-	const productsData = useSelector((store: AppStore) => store.product)
+	const categoriesData = useSelector((store: AppStore) => store.products.categories)
 	const listCategories: string[] = [];
 
-	const categoryExist = productsData.hasOwnProperty('categories');
-
-	if (categoryExist) {
-		productsData.categories?.map((x: string) => {
+	if (categoriesData.length > 0) {
+		categoriesData?.map((x: string) => {
 			listCategories.push(x, ' >');
 		})
 	}
@@ -25,11 +23,16 @@ const BreadCrumb: React.FC<BreadCrumbInterface> = () => {
 		<>
 			{
 				<BreadCrumbStyled>
-					<p className='p'>
-						{categoryExist && listCategories?.map(function (x: string, index) {
-							return (<span key={x + index}>{x}</span>)
-						})}
-					</p>
+					{categoriesData.length > 0 && (
+						<div className='p' >
+							{listCategories?.map(function (x: string, index) {
+								return (<span key={x + index}>{x}</span>)
+							})}
+						</div>
+					)
+
+					}
+
 				</BreadCrumbStyled>
 
 			}

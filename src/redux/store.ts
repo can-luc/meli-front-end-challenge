@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { productSlice } from './states/product';
-
+import { ProductList } from '../types/producList';
+import { ProductDetail } from '../types/productDetail';
+import { productDetailSlice } from './states/productDetail';
+import { productsSlice } from './states/products';
 export interface AppStore {
-  product: any;
+  productDetail: ProductDetail;
+  products: ProductList;
 }
 
 export default configureStore<AppStore>({
   reducer: {
-    product: productSlice.reducer,
+    productDetail: productDetailSlice.reducer,
+    products: productsSlice.reducer,
   },
 });

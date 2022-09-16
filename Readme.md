@@ -101,8 +101,7 @@ Para los estilos se utilizo styled-components, Una de las ventajas más importan
 
 ## Model
 
-En la carpeta ```Model``` estaran los modelos inicializados sobre la data de los productos y sobre un producto en especifico,
-ademas del model de axios para utilizar AbortController
+En la carpeta ```Model``` model de axios para utilizar AbortController
 ## Types
 
 En la carpeta ```Types``` estaran los modelos sobre la data de los productos y sobre un producto en especifico,

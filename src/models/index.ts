@@ -1,1 +1,2 @@
-export * from './product.model';
+export * from './axios-call.model';
+
